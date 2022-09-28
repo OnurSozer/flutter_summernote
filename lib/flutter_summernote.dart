@@ -316,6 +316,8 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
     <div id="summernote" contenteditable="true"></div>
     <script type="text/javascript">
       \$("#summernote").summernote({
+        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Times New Roman', 'Georgia'],
+        fontNamesIgnoreCheck: ['Arial'],
         placeholder: 'Your text here...',
         tabsize: 2,
         toolbar: $toolbar
