@@ -318,7 +318,7 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
       \$("#summernote").summernote({
         placeholder: 'Your text here...',
         tabsize: 2,
-        toolbar: $toolbar,
+        toolbar: $toolbar
         popover: {$popover}
       });
     </script>
