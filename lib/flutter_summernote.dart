@@ -25,7 +25,7 @@ class FlutterSummernote extends StatefulWidget {
   final BoxDecoration? decoration;
   final String widthImage;
   final String? hint;
-  final String customToolbar;
+  final String? customToolbar;
   final String? customPopover;
   final bool hasAttachment;
   final bool showBottomToolbar;
@@ -38,7 +38,7 @@ class FlutterSummernote extends StatefulWidget {
       this.decoration,
       this.widthImage: "100%",
       this.hint,
-      required this.customToolbar,
+      this.customToolbar,
       this.customPopover,
       this.hasAttachment: false,
       this.showBottomToolbar: true,
@@ -282,9 +282,13 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
     );
   }
 
-  String _initPage(String customToolbar, String? customPopover) {
+  String _initPage(String? customToolbar, String? customPopover) {
     String toolbar;
+    if (customToolbar == null) {
+      toolbar = _defaultToolbar;
+    } else {
       toolbar = customToolbar;
+    }
     String popover;
     if (customPopover == null) {
       popover = _defaultPopover;
@@ -316,7 +320,7 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
         fontNamesIgnoreCheck: ['Arial'],
         placeholder: 'Your text here...',
         tabsize: 2,
-        toolbar: $toolbar
+        toolbar: $toolbar,
         popover: {$popover}
       });
     </script>
@@ -346,7 +350,18 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
       ['insert', ['link', 'picture']]
     ]
 """;
-  
+
+  String _defaultToolbar = """
+    [
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['font', ['fontsize', 'fontname']],
+      ['color', ['forecolor', 'backcolor']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['view', ['fullscreen']]
+    ]
+  """;
 
   void _attach(BuildContext context) {
     showModalBottomSheet(
