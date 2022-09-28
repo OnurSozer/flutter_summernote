@@ -351,15 +351,13 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
     ]
 """;
 
-  String _defaultToolbar = """
-    [
-      ['style', ['bold', 'italic', 'underline', 'clear']],
-      ['font', ['strikethrough', 'superscript', 'subscript']],
+  String _defaultToolbar = """[
+      ['style', ['bold', 'italic', 'underline']],
+      ['font', ['strikethrough']],
       ['font', ['fontsize', 'fontname']],
       ['color', ['forecolor', 'backcolor']],
       ['para', ['ul', 'ol', 'paragraph']],
-      ['height', ['height']],
-      ['view', ['fullscreen']]
+      ['height', ['height']]
     ]
   """;
 
